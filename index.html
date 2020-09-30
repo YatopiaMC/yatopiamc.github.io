@@ -143,8 +143,12 @@
     <script>
         let stats = document.getElementById("stats");
         var MESSAGES = {
-            message: '⚡ Powering {number, plural,=0 {no servers}=1 {one server}<1000 {way too many servers}other {# servers}}.'
-        };
+            message: '⚡ Powering {number, plural, '
+            '=0 {no servers}'
+            '=1 {one server}'
+            '<1000 {way too many servers}'
+            'other {# servers}'
+            '.};'
         var msg = new IntlMessageFormat(MESSAGES.message, 'en-US');
         var request = new XMLHttpRequest();
         request.open("GET", "https://bstats.org/api/v1/plugins/8840/charts/servers/data?maxElements=1", true);
