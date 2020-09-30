@@ -99,15 +99,15 @@
             background-color: #59d983;
         }
 
-        .footer {
-            background-color: #e3e3e3;
+        .stats {
+            background-color: #404040;
             position: relative;
             display: block;
             margin: 0 auto;
-            width: 20em;
+            width: 16em;
             bottom: -5em;
-            padding: 0.6em;
-            height: 1.5em;
+            padding: 0.1em 0.1em;
+            height: 1.6em;
             border-radius: 0.3em;
         }
 
@@ -133,9 +133,21 @@
             <a class="downloads link" href="https://ci.codemc.io/job/YatopiaMC/job/Yatopia/">Downloads</a>
             <a class="discord link" href="https://discord.io/YatopiaMC">Discord</a>
             <a class="github link" href="https://github.com/YatopiaMC">GitHub</a>
-            
+        </div>
+        <div class="stats">
+            <h3 id="stats" style="color: #ebebeb !important;"></h3>
         </div>
     </div>
+    
+    <script>
+        let stats = document.getElementById("stats");
+        var request = new XMLHttpRequest();
+        request.open("GET", "https://bstats.org/api/v1/plugins/8840/charts/servers/data?maxElements=1", true);
+        request.onload = () => {
+            stats.innerText = `⚡ Powering ${JSON.parse(request.responseText)[0][1]} servers.`
+        }
+        request.send(null)
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/page-accelerator/0.1.1/page-accelerator.min.js" integrity="sha512-YZMsq9hQOwRuYLHDE3xu5Fuqc7dsw8JW93koppkyK4dxD963sMKZkZQFF62HpQIA74nmG8mK4lzKQf0IpFOU2Q==" crossorigin="anonymous"></script>
 </body>
 
