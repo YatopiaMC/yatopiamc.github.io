@@ -5,8 +5,31 @@ body {
     padding-top: 4em;
 }
 
+.container {
+    animation: fadeIn 3s;
+}
+
 .material-icons {
     vertical-align: text-bottom;
+}
+
+.back-menu {
+    background-color: #98d4f5;
+    color: white;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 0.3em 1em;
+    font-weight: 600;
+}
+
+.back-menu a {
+    color: white;
+}
+
+.back-menu a:hover {
+    color: white;
+    text-decoration: none;
 }
 
 .heading {
@@ -24,6 +47,7 @@ body {
     color: #C0C0C0;
     font-size: 1.2em;
     font-weight: 600;
+    padding-bottom: 1em;
 }
 
 .table {
@@ -56,4 +80,29 @@ body {
     color: white;
     background-color: #52bf75;
     cursor: pointer;
+}
+
+.stable {
+    padding: 1.5em 2em;
+    border-radius: 0.3em;
+    background-color: #292929;
+    margin-bottom: 2em;
+}
+
+.stable h1 {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
