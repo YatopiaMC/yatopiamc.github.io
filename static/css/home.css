@@ -20,7 +20,7 @@ body {
     margin: 0 auto;
     display: block;
     padding-bottom: 25px;
-    width: 240px;
+    width: 210px;
     -webkit-filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.3));
     filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.3));
 }
