@@ -10,6 +10,9 @@ body {
     animation: fadeIn 3s;
     padding: 0;
     margin: 0;
+    background: linear-gradient(-45deg, #202121, #1f1f1f, #0f0f0f, #6b6a6a);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
 }
 
 .content {
@@ -103,4 +106,20 @@ body {
     100% {
         opacity: 1;
     }
+}
+
+body {
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
