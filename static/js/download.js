@@ -11,6 +11,7 @@ request.onload = () => {
     let jsonResponse =  JSON.parse(request.responseText);
     if (jsonResponse['error'] != null) {
         document.getElementById('error').style.display = 'block'
+        document.getElementById('buildsAre').style.display = 'none'
         return;
     }
     let builds = jsonResponse['builds'];
