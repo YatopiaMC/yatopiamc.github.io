@@ -13,7 +13,7 @@ request.onload = () => {
         document.getElementById('error').style.display = 'block'
         return;
     }
-    let builds = JSON.parse(request.responseText)['builds'];
+    let builds = jsonResponse['builds'];
     var version = builds[0]['branch']['name'].replace('ver/', '');
     document.getElementById('buildsAre').innerText = "These builds are for Minecraft " + version + ".";
 
