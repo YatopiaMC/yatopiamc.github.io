@@ -1,11 +1,10 @@
 let table = document.getElementById("table");
 
-const STABLE_BUILD = 90;
 // we'll show it later
 document.getElementById('stable').style.display = 'none'
 
 var request = new XMLHttpRequest();
-request.open("GET", "https://api.yatopia.net/v2/builds", true);
+request.open("GET", "https://api.yatopia.net/v2/builds?branch=" + BRANCH, true);
 request.onload = () => {
     let jsonResponse =  JSON.parse(request.responseText);
     if (jsonResponse['error'] != null) {
@@ -14,8 +13,7 @@ request.onload = () => {
         return;
     }
     let builds = jsonResponse['builds'];
-    var version = builds[0]['branch']['name'].replace('ver/', '');
-    document.getElementById('buildsAre').innerText = "These builds are for Minecraft " + version + ".";
+    document.getElementById('buildsAre').innerText = "These builds are for Minecraft " + VERSION + ".";
 
     for (var i = 0; i < builds.length; i++) {
         let build = builds[i];
