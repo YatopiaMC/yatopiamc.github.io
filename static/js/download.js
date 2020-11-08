@@ -39,8 +39,16 @@ request.onload = () => {
 
         let row = table.insertRow(-1);
         row.insertCell(0).innerHTML = `<a class="download-button" href="${build['downloadUrl']}">#${build['number']} <span class="material-icons">get_app</span></a>`;
-        row.insertCell(1).innerHTML = commitMessage;
-        row.insertCell(2).innerHTML = dateMessage;
+        if (commitMessage.length === 0) {
+            row.insertCell(1).innerHTML = `<i>No changes from previous build</i>`
+        } else {
+            row.insertCell(1).innerHTML = commitMessage;
+        }
+        if (dateMessage.length === 0) {
+            row.insertCell(2).innerHTML = `<i>unknown</i>`
+        } else {
+            row.insertCell(2).innerHTML = dateMessage;
+        }
     }
 }
 request.send(null)
