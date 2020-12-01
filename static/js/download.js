@@ -4,7 +4,7 @@ let table = document.getElementById("table");
 document.getElementById('stable').style.display = 'none'
 
 var request = new XMLHttpRequest();
-request.open("GET", "https://api.yatopia.net/v2/builds?branch=" + BRANCH, true);
+request.open("GET", "https://api.yatopiamc.org/v2/builds?branch=" + BRANCH, true);
 request.onload = () => {
     let jsonResponse =  JSON.parse(request.responseText);
     if (jsonResponse['error'] != null) {
