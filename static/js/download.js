@@ -20,9 +20,6 @@ request.onload = () => {
         if (build['status'] === "FAILURE" || build['status'] === "BUILDING") {
             continue;
         }
-        if (build['number'] === STABLE_BUILD) {
-            document.getElementById('stable').outerHTML = `<a id="stable" class="download-button" href="${build['downloadUrl']}">Latest stable build: #${build['number']}<span class="material-icons">get_app</span></a>`
-        }
         var commitMessage = "";
         var dateMessage = "";
         let changeSets = build['changeSets'];
@@ -52,6 +49,18 @@ request.onload = () => {
     }
 }
 request.send(null)
+
+var stableRequest = new XMLHttpRequest()
+stableRequest.open("GET", "https://api.yatopiamc.org/v2/stableBuild?branch=" + BRANCH, true)
+stableRequest.onload = () => {
+    let response = JSON.parse(stableRequest.responseText);
+    if (response['error'] != null) {
+        document.getElementById('stable').style.display = 'none'
+        return;
+    }
+    document.getElementById('stable').outerHTML = `<a id="stable" class="download-button" href="${response['downloadUrl']}">Latest stable build: #${response['number']}<span class="material-icons">get_app</span></a>`
+}
+stableRequest.send(null)
 
 function getFailureBuildsUntilSuccessfulFromLatest(builds, from) {
     var commitMessage = "";
