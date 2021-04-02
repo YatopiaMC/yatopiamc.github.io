@@ -79,6 +79,16 @@ body {
 
 .discord {
     background-color: #7289DA;
+	
+    &:hover .iframe-preview {
+      opacity:1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+  
+    &:hover {
+      box-shadow: 0 1px 5px rgba(0,0,0,.1);
+      border-color: #333;
+    }
 }
 
 .downloads {
@@ -122,4 +132,26 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+.discord-iframe {
+  transition:.2s ease-in-out opacity, .2s ease-in-out transform;
+  opacity:0;
+  position:absolute;
+  bottom: 110%;
+  left:50%;
+  box-shadow:0 1px 5px rgba(0,0,0,.5);
+  width:230px;
+  padding-right: 30px;
+  height:160px;
+  border:4px solid #fff;
+  overflow-x:hidden;
+  overflow-y:auto;
+  transform-origin:center bottom;
+  transform: translateX(-50%) translateY(10px) scale(.9);
+  
+  iframe {
+    transform:scale(.2);
+    transform-origin:0 0;
+  }
 }
